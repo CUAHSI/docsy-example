@@ -1,6 +1,9 @@
 baseURL = "/"
 title = "CUAHSI TEST DOCSY"
 
+# Hugo allows theme composition (and inheritance). The precedence is from left to right.
+theme = ["github.com/google/docsy", "github.com/google/docsy/dependencies"]
+
 # Language settings
 contentDir = "content/en"
 defaultContentLanguage = "en"
@@ -45,6 +48,13 @@ pygmentsStyle = "tango"
 [permalinks]
 blog = "/:section/:year/:month/:day/:slug/"
 
+## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+angledQuotes = false
+latexDashes = true
+
 # Image processing configuration.
 [imaging]
 resampleFilter = "CatmullRom"
@@ -63,32 +73,9 @@ id = "UA-00000000-0"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
-[languages.en.params]
-title = "CUAHSI TEST DOCSY"
-description = "A Docsy example site"
-
-[languages.no]
-languageName ="Norsk"
-contentDir = "content/no"
-[languages.no.params]
-title = "CUAHSI TEST DOCSY"
-description = "Docsy er operativsystem for skyen"
-time_format_default = "02.01.2006"
-time_format_blog = "02.01.2006"
-
-[languages.fa]
-languageName ="فارسی"
-contentDir = "content/fa"
-[languages.fa.params]
-title = "اسناد گلدی"
-description = "یک نمونه برای پوسته داکسی"
-time_format_default = "2006.01.02"
-time_format_blog = "2006.01.02"
 
 [markup]
   [markup.goldmark]
-    [markup.goldmark.parser.attribute]
-      block = true
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
@@ -104,8 +91,8 @@ time_format_blog = "2006.01.02"
 section = ["HTML", "print", "RSS"]
 
 [params]
-copyright = "The Docsy Authors"
-privacy_policy = "https://policies.google.com/privacy"
+copyright = "CUAHSI"
+#privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
@@ -147,7 +134,7 @@ gcs_engine_id = "d72aa9b2712488cc3"
 algolia_docsearch = false
 
 # Enable Lunr.js offline search
-offlineSearch = false
+offlineSearch = true
 
 # Enable syntax highlighting and copy buttons on code blocks with Prism
 prism_syntax_highlighting = false
